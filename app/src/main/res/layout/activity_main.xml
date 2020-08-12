@@ -11,13 +11,13 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_view_show_operand_operator"
         android:layout_width="399dp"
         android:layout_height="140dp"
         android:layout_gravity="center|center_horizontal|center_vertical"
         android:background="#040404"
         android:paddingLeft="10dp"
-        android:paddingTop="45dp"
+        android:paddingTop="60dp"
         android:text="@string/text_show_result"
         android:textColor="#FFFEFE"
         android:textSize="15dp"
@@ -28,15 +28,20 @@
         android:layout_height="69dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_text_disable"
-            android:layout_width="290dp"
+        <TextView
+            android:id="@+id/text_view_output_result"
+            android:layout_width="287dp"
             android:layout_height="70dp"
-            android:layout_marginBottom="2dp"
+            android:layout_gravity="center|fill_vertical"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
             android:layout_weight="0"
             android:background="#514F4F"
+            android:paddingTop="0dp"
             android:paddingRight="2dp"
-            android:textSize="15dp"
+            android:paddingBottom="10dp"
+            android:textColor="#FAFAFA"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <Button
@@ -44,7 +49,7 @@
             style="@style/btn_operator"
             android:layout_width="90dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="9dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginBottom="4dp"
             android:paddingLeft="0dp"
             android:paddingTop="0dp"

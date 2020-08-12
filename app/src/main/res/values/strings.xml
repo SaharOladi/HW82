@@ -17,5 +17,5 @@
     <string name="button_zero">0</string>
     <string name="button_equal">=</string>
     <string name="button_summation">+</string>
-    <string name="text_show_result">TextView</string>
+    <string name="text_show_result"></string>
 </resources>
