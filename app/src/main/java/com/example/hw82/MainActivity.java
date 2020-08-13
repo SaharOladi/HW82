@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
     private float mValue1;
     private float mValue2;
     private float mResult;
+    private float mMemory=0; // to do
 
     private boolean mAdd;
-    private boolean msubtract;
+    private boolean mSubtract;
     private boolean mMultiply;
     private boolean mDivide;
+
 
 
     @Override
@@ -135,81 +139,80 @@ public class MainActivity extends AppCompatActivity {
         mSumBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                extractValueButton(v);
-            }
-        });
-
-        mSubtractBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                extractValueButton(v);
-            }
-        });
-
-        mMultiplyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                extractValueButton(v);
-            }
-        });
-
-        mDivideBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                extractValueButton(v);
-            }
-        });
-
-        mSumBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mValue1 = Float.parseFloat(mTxtViewShowOparandOperator.getText() + "");
                 mAdd = true;
-                mTxtViewShowOparandOperator.setText("");
+                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " + ");
             }
         });
 
         mSubtractBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValue1 = Float.parseFloat(mTxtViewShowOparandOperator.getText() + "");
-                msubtract = true;
-                mTxtViewShowOparandOperator.setText("");
+                mSubtract = true;
+                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " - ");
             }
         });
 
         mMultiplyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValue1 = Float.parseFloat(mTxtViewShowOparandOperator.getText() + "");
                 mMultiply = true;
-                mTxtViewShowOparandOperator.setText("");
+                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " * ");
             }
         });
 
         mDivideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValue1 = Float.parseFloat(mTxtViewShowOparandOperator.getText() + "");
                 mDivide = true;
-                mTxtViewShowOparandOperator.setText("");
+                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " / ");
             }
         });
 
         mEqualsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValue2 = Float.parseFloat(mTxtViewShowOparandOperator.getText()+"");
-                if(mAdd)
-                    mResult = mValue1+mValue2;
-                if(msubtract)
-                    mResult = mValue1-mValue2;
-                if(mMultiply)
-                    mResult = mValue1*mValue2;
-                if(mDivide)
-                    mResult = mValue1/mValue2;
+                String[] strings = extractValueString(mTxtViewShowOparandOperator);
 
-                mTxtViewShowResult.setText(mResult+"");
+                if (mAdd) {
+                    mValue1 = Float.parseFloat(strings[0]);
+                    mValue2 = Float.parseFloat(strings[2]);
+                    mResult = mValue1 + mValue2;
+                    mTxtViewShowResult.setText(mResult + "");
+                    mAdd = false;
+
+                }
+                if (mSubtract) {
+                    mValue1 = Float.parseFloat(strings[0]);
+                    mValue2 = Float.parseFloat(strings[2]);
+                    mResult = mValue1 - mValue2;
+                    mTxtViewShowResult.setText(mResult + "");
+                    mSubtract = false;
+
+                }
+                if (mMultiply) {
+                    mValue1 = Float.parseFloat(strings[0]);
+                    mValue2 = Float.parseFloat(strings[2]);
+                    mResult = mValue1 * mValue2;
+                    mTxtViewShowResult.setText(mResult + "");
+                    mMultiply = false;
+
+                }
+                if (mDivide) {
+                    mValue1 = Float.parseFloat(strings[0]);
+                    mValue2 = Float.parseFloat(strings[2]);
+                    if (mValue2 != 0) {
+                        mResult = mValue1 / mValue2;
+                        mTxtViewShowResult.setText(mResult + "");
+                    } else {
+                        Toast.makeText(MainActivity.this, "Divide On Zero Value!!! Change the value.", Toast.LENGTH_SHORT).show();
+                    }
+                    mDivide = false;
+
+                }
+
+                mTxtViewShowOparandOperator.setText("");
+
+
             }
         });
 
@@ -222,8 +225,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
 
-
+    private String[] extractValueString(TextView textView) {
+        String str = textView.getText().toString();
+        String[] strArray = str.split(" ");
+        return strArray;
     }
 
     private void extractValueButton(View view) {
@@ -232,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         switch (id) {
 
             case R.id.btn_zero:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText()+"0");
+                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "0");
                 break;
             case R.id.btn_1:
                 mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "1");
@@ -263,18 +270,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_dot:
                 mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + ".");
-                break;
-            case R.id.btn_sum:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " + ");
-                break;
-            case R.id.btn_subtract:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " - ");
-                break;
-            case R.id.btn_multiply:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " * ");
-                break;
-            case R.id.btn_divide:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " / ");
                 break;
         }
 
