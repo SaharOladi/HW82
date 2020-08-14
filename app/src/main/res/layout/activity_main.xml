@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_marginBottom="2dp"
     android:background="#0B0B0B"
     android:orientation="vertical"
@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/text_view_show_operand_operator"
         android:layout_width="399dp"
-        android:layout_height="140dp"
+        android:layout_height="135dp"
         android:layout_gravity="center|center_horizontal|center_vertical"
         android:background="#040404"
         android:paddingLeft="10dp"
@@ -31,7 +31,7 @@
         <TextView
             android:id="@+id/text_view_output_result"
             android:layout_width="287dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:layout_gravity="center|fill_vertical"
             android:layout_marginLeft="4dp"
             android:layout_marginBottom="4dp"
@@ -48,7 +48,7 @@
             android:id="@+id/btn_delete"
             style="@style/btn_operator"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="4dp"
             android:paddingLeft="0dp"
@@ -90,7 +90,7 @@
             android:id="@+id/btn_9"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_nine"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -99,7 +99,7 @@
             android:id="@+id/btn_divide"
             style="@style/btn_operator"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_divide"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
@@ -116,7 +116,7 @@
             android:id="@+id/btn_4"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_four"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -125,7 +125,7 @@
             android:id="@+id/btn_5"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_five"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -134,7 +134,7 @@
             android:id="@+id/btn_6"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_six"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -143,7 +143,7 @@
             android:id="@+id/btn_multiply"
             style="@style/btn_operator"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_multiply"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
@@ -159,7 +159,7 @@
             android:id="@+id/btn_1"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_one"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -168,7 +168,7 @@
             android:id="@+id/btn_2"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_two"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -177,7 +177,7 @@
             android:id="@+id/btn_3"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_three"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -186,7 +186,7 @@
             android:id="@+id/btn_subtract"
             style="@style/btn_operator"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_subtract"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
@@ -195,7 +195,7 @@
 
     <LinearLayout
         android:layout_width="399dp"
-        android:layout_height="wrap_content"
+        android:layout_height="76dp"
         android:layout_weight="0"
         android:orientation="horizontal">
 
@@ -203,7 +203,7 @@
             android:id="@+id/btn_dot"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_dot"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -212,7 +212,7 @@
             android:id="@+id/btn_zero"
             style="@style/btn_operand"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_zero"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -231,7 +231,7 @@
             android:id="@+id/btn_sum"
             style="@style/btn_operator"
             android:layout_width="90dp"
-            android:layout_height="70dp"
+            android:layout_height="71dp"
             android:text="@string/button_summation"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />

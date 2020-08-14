@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mDeleteBtn;
@@ -31,19 +33,18 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnDot;
 
     private TextView mTxtViewShowResult;
-    private TextView mTxtViewShowOparandOperator;
+    private TextView mTxtViewShowOperandOperator;
 
 
     private float mValue1;
     private float mValue2;
     private float mResult;
-    private float mMemory=0; // to do
+    private float mMemory = 0; // to do
 
     private boolean mAdd;
     private boolean mSubtract;
     private boolean mMultiply;
     private boolean mDivide;
-
 
 
     @Override
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAdd = true;
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " + ");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + " + ");
             }
         });
 
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mSubtract = true;
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " - ");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + " - ");
             }
         });
 
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mMultiply = true;
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " * ");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + " * ");
             }
         });
 
@@ -164,53 +165,82 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mDivide = true;
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + " / ");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + " / ");
             }
         });
 
         mEqualsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] strings = extractValueString(mTxtViewShowOparandOperator);
+                String[] strings = extractValueString(mTxtViewShowOperandOperator);
 
                 if (mAdd) {
-                    mValue1 = Float.parseFloat(strings[0]);
+                    if (strings[0].equals("")) {
+                        mValue1 = mMemory;
+                    } else {
+                        mValue1 = Float.parseFloat(strings[0]);
+                    }
                     mValue2 = Float.parseFloat(strings[2]);
+
                     mResult = mValue1 + mValue2;
+                    mMemory = mResult;
                     mTxtViewShowResult.setText(mResult + "");
                     mAdd = false;
+                    mResult = 0;
 
                 }
                 if (mSubtract) {
-                    mValue1 = Float.parseFloat(strings[0]);
+                    if (strings[0].equals("")) {
+                        mValue1 = mMemory;
+                    } else {
+                        mValue1 = Float.parseFloat(strings[0]);
+                    }
                     mValue2 = Float.parseFloat(strings[2]);
+
                     mResult = mValue1 - mValue2;
+                    mMemory = mResult;
                     mTxtViewShowResult.setText(mResult + "");
                     mSubtract = false;
+                    mResult = 0;
 
                 }
                 if (mMultiply) {
-                    mValue1 = Float.parseFloat(strings[0]);
+                    if (strings[0].equals("")) {
+                        mValue1 = mMemory;
+                    } else {
+                        mValue1 = Float.parseFloat(strings[0]);
+                    }
                     mValue2 = Float.parseFloat(strings[2]);
+
                     mResult = mValue1 * mValue2;
+                    mMemory = mResult;
                     mTxtViewShowResult.setText(mResult + "");
                     mMultiply = false;
+                    mResult = 0;
+
 
                 }
                 if (mDivide) {
-                    mValue1 = Float.parseFloat(strings[0]);
+                    if (strings[0].equals("")) {
+                        mValue1 = mMemory;
+                    } else {
+                        mValue1 = Float.parseFloat(strings[0]);
+                    }
                     mValue2 = Float.parseFloat(strings[2]);
+
                     if (mValue2 != 0) {
                         mResult = mValue1 / mValue2;
+                        mMemory = mResult;
                         mTxtViewShowResult.setText(mResult + "");
                     } else {
                         Toast.makeText(MainActivity.this, "Divide On Zero Value!!! Change the value.", Toast.LENGTH_SHORT).show();
                     }
                     mDivide = false;
+                    mResult = 0;
 
                 }
 
-                mTxtViewShowOparandOperator.setText("");
+                mTxtViewShowOperandOperator.setText("");
 
 
             }
@@ -219,8 +249,9 @@ public class MainActivity extends AppCompatActivity {
         mDeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTxtViewShowOparandOperator.setText("");
+                mTxtViewShowOperandOperator.setText("");
                 mTxtViewShowResult.setText("");
+                mMemory = 0;
             }
         });
 
@@ -239,37 +270,37 @@ public class MainActivity extends AppCompatActivity {
         switch (id) {
 
             case R.id.btn_zero:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "0");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "0");
                 break;
             case R.id.btn_1:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "1");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "1");
                 break;
             case R.id.btn_2:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "2");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "2");
                 break;
             case R.id.btn_3:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "3");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "3");
                 break;
             case R.id.btn_4:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "4");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "4");
                 break;
             case R.id.btn_5:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "5");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "5");
                 break;
             case R.id.btn_6:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "6");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "6");
                 break;
             case R.id.btn_7:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "7");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "7");
                 break;
             case R.id.btn_8:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "8");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "8");
                 break;
             case R.id.btn_9:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + "9");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + "9");
                 break;
             case R.id.btn_dot:
-                mTxtViewShowOparandOperator.setText(mTxtViewShowOparandOperator.getText() + ".");
+                mTxtViewShowOperandOperator.setText(mTxtViewShowOperandOperator.getText() + ".");
                 break;
         }
 
@@ -297,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnNine = findViewById(R.id.btn_9);
 
         mTxtViewShowResult = findViewById(R.id.text_view_output_result);
-        mTxtViewShowOparandOperator = findViewById(R.id.text_view_show_operand_operator);
+        mTxtViewShowOperandOperator = findViewById(R.id.text_view_show_operand_operator);
 
     }
 
