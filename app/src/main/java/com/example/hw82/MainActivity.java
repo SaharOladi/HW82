@@ -1,5 +1,6 @@
 package com.example.hw82;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,6 +14,10 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String BUNDLE_RESULT = "bundle_result";
+    public static final String BUNDLE_MEMORY = "bundle_memory";
+    public static final String BUNDLE_SHOW_OPERAND_OPERATOR = "bundle_show_operand_operator";
+    public static final String BUNDLE_SHOW_RESULT = "bundle_show_result";
     private Button mDeleteBtn;
     private Button mSumBtn;
     private Button mSubtractBtn;
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private float mValue1;
     private float mValue2;
     private float mResult;
-    private float mMemory = 0; // to do
+    private float mMemory = 0;
 
     private boolean mAdd;
     private boolean mSubtract;
@@ -55,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         setListener();
 
+        if (savedInstanceState != null) {
+            mMemory = savedInstanceState.getFloat(BUNDLE_MEMORY);
+            mResult = savedInstanceState.getFloat(BUNDLE_RESULT);
+            if (savedInstanceState.getString(BUNDLE_SHOW_RESULT) != null)
+                mTxtViewShowResult.setText(savedInstanceState.getString(BUNDLE_SHOW_RESULT) + "");
+            if (savedInstanceState.getString(BUNDLE_SHOW_OPERAND_OPERATOR) != null)
+                mTxtViewShowOperandOperator.setText(savedInstanceState.getBundle(BUNDLE_SHOW_OPERAND_OPERATOR) + "");
+        }
     }
 
 
@@ -332,4 +345,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putFloat(BUNDLE_RESULT, mResult);
+        outState.putFloat(BUNDLE_MEMORY, mMemory);
+        outState.putString(BUNDLE_SHOW_OPERAND_OPERATOR, mTxtViewShowOperandOperator.getText().toString());
+        outState.putString(BUNDLE_SHOW_RESULT, mTxtViewShowResult.getText().toString());
+
+    }
 }
