@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="6"
     android:layout_marginBottom="2dp"
     android:background="#0B0B0B"
     android:orientation="vertical"
@@ -12,33 +13,32 @@
 
     <TextView
         android:id="@+id/text_view_show_operand_operator"
-        android:layout_width="731dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center|center_horizontal|center_vertical"
+        style="@style/TextAppearance.AppCompat.Large.Inverse"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|left"
         android:background="#040404"
-        android:paddingLeft="10dp"
-        android:paddingTop="60dp"
-        android:text="@string/text_show_result"
-        android:textColor="#FFFEFE"
-        android:textSize="20dp"
+        android:padding="8dp"
+        tools:text="1+2"
+        android:textColor="@android:color/white"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="4"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/text_view_output_result"
-            android:layout_width="438dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_gravity="center|fill_vertical"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="4dp"
-            android:layout_weight="0"
+            android:layout_weight="3"
             android:background="#514F4F"
-            android:paddingTop="0dp"
+            android:padding="8dp"
             android:textColor="#FAFAFA"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -46,15 +46,11 @@
         <Button
             android:id="@+id/btn_delete"
             style="@style/btn_operator"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="2dp"
-            android:paddingLeft="0dp"
-            android:paddingTop="0dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="0dp"
+            android:padding="8dp"
             android:text="@string/button_delete"
+            android:layout_weight="1"
             android:textColor="#FFFCFC"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -63,28 +59,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="4"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_7"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
+            android:gravity="center"
             android:text="@string/button_seven"
+            android:layout_weight="1"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_8"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_eight"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -92,10 +89,10 @@
         <Button
             android:id="@+id/btn_9"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_nine"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -103,8 +100,10 @@
         <Button
             android:id="@+id/btn_divide"
             style="@style/btn_operator"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_divide"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
@@ -113,16 +112,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_4"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_four"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -130,9 +130,10 @@
         <Button
             android:id="@+id/btn_5"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_five"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -140,9 +141,10 @@
         <Button
             android:id="@+id/btn_6"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_six"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -150,8 +152,10 @@
         <Button
             android:id="@+id/btn_multiply"
             style="@style/btn_operator"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_multiply"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
@@ -159,15 +163,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_1"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_one"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -175,8 +181,10 @@
         <Button
             android:id="@+id/btn_2"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_two"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -184,8 +192,10 @@
         <Button
             android:id="@+id/btn_3"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_three"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -193,25 +203,28 @@
         <Button
             android:id="@+id/btn_subtract"
             style="@style/btn_operator"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_subtract"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
     </LinearLayout>
 
-
     <LinearLayout
-        android:layout_width="691dp"
-        android:layout_height="76dp"
-        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_dot"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_dot"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -219,8 +232,10 @@
         <Button
             android:id="@+id/btn_zero"
             style="@style/btn_operand"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_zero"
             android:textColor="#FFFCFC"
             android:textStyle="bold" />
@@ -228,9 +243,10 @@
         <Button
             android:id="@+id/btn_equals"
             style="@style/btn_operator"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_equal"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />
@@ -238,8 +254,10 @@
         <Button
             android:id="@+id/btn_sum"
             style="@style/btn_operator"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/button_summation"
             android:textColor="#FDFCFC"
             android:textStyle="bold" />

@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void setListener() {
 
         mBtnZero.setOnClickListener(new View.OnClickListener() {
@@ -345,13 +344,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putFloat(BUNDLE_RESULT, mResult);
         outState.putFloat(BUNDLE_MEMORY, mMemory);
-        outState.putString(BUNDLE_SHOW_OPERAND_OPERATOR, mTxtViewShowOperandOperator.getText().toString());
-        outState.putString(BUNDLE_SHOW_RESULT, mTxtViewShowResult.getText().toString());
+        if (!mTxtViewShowOperandOperator.getText().toString().isEmpty())
+            outState.putString(BUNDLE_SHOW_OPERAND_OPERATOR, mTxtViewShowOperandOperator.getText().toString());
+
+        if (!mTxtViewShowResult.getText().toString().isEmpty())
+            outState.putString(BUNDLE_SHOW_RESULT, mTxtViewShowResult.getText().toString());
 
     }
 }
